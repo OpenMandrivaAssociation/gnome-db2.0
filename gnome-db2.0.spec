@@ -2,15 +2,13 @@
 %define	major	4
 %define name	gnome-db2.0
 %define oname gnome-db
-%define api 3
+%define api 3.0
 %define libname	%mklibname %{oname}%{api}_ %major 
-%define gdaver 2.99.4
-%define		build_mono 1
-%{?_with_mdb: %global build_mono 1}
+%define gdaver 2.99.6
 
 Summary:	GNOME DB
 Name:		%name
-Version: 2.99.5
+Version: 2.99.6
 Release: %mkrel 1
 License:	GPL/LGPL
 Group: 		Databases
@@ -67,29 +65,6 @@ components intended to be reused in other unrelated applications.
 This package contains libraries, header files and tools to let
 you develop GNOME-DB applications.
 
-%if %build_mono
-%package -n gnomedb-sharp2
-Summary:	GNOME C# bindings
-Group: 		Development/Other
-Requires: %libname = %version
-BuildRequires:  gda-sharp
-BuildRequires:  gnome-sharp2
-BuildRequires:  mono-devel
-Requires: %libname = %version
-
-%description -n gnomedb-sharp2
-Gnome DB is a frontend to the GDA architecture, being developed as part
-of the GNOME project. It adds, to the already powerful GDA architecture,
-a nice GUI front end for users, as well as a whole set of software
-components intended to be reused in other unrelated applications.
-
-This package contains the Mono/C# bindings for Gnome DB.
-
-%files -n gnomedb-sharp2
-%defattr(-, root, root)
-%_libdir/%pkgname/*.dll*
-%_libdir/pkgconfig/gnomedb-sharp-3.0.pc
-%endif
 
 %prep
 %setup -q -n %{pkgname}-%{version}
@@ -102,11 +77,6 @@ This package contains the Mono/C# bindings for Gnome DB.
 rm -rf $RPM_BUILD_ROOT
 
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
-%if %build_mono
-cd gnomedb-sharp
-%makeinstall_std
-cd ..
-%endif
 
 # menu entry
 mkdir -p $RPM_BUILD_ROOT%{_menudir}
@@ -196,5 +166,3 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/omf/*
 %{_datadir}/omf/*/*-C.omf
 %_datadir/gnome-db/demo
-
-
