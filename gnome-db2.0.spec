@@ -4,11 +4,11 @@
 %define oname gnome-db
 %define api 3.0
 %define libname	%mklibname %{oname}%{api}_ %major 
-%define gdaver 2.99.6
+%define gdaver 3.0.0
 
 Summary:	GNOME DB
 Name:		%name
-Version: 2.99.6
+Version: 3.0.0
 Release: %mkrel 1
 License:	GPL/LGPL
 Group: 		Databases
