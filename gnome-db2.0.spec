@@ -9,7 +9,7 @@
 Summary:	GNOME DB
 Name:		%name
 Version: 3.0.0
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPL/LGPL
 Group: 		Databases
 URL:		http://www.gnome-db.org/
