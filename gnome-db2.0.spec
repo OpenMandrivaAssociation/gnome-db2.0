@@ -9,7 +9,7 @@
 Summary:	GNOME DB
 Name:		%name
 Version: 3.0.0
-Release: %mkrel 2
+Release: %mkrel 3
 License:	GPL/LGPL
 Group: 		Databases
 URL:		http://www.gnome-db.org/
@@ -20,7 +20,7 @@ BuildRequires:	gda2.0-devel >= %gdaver
 BuildRequires:	scrollkeeper
 BuildRequires:	gtk-doc
 BuildRequires:	libglade2.0-devel
-BuildRequires:	gtksourceview-devel
+BuildRequires:	libgtksourceview1.0-devel
 BuildRequires:  evolution-data-server-devel
 BuildRequires:	glade3-devel >= 3.1.5
 BuildRequires:	ImageMagick
