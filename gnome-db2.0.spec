@@ -4,12 +4,13 @@
 %define oname gnome-db
 %define api 3.0
 %define libname	%mklibname %{oname}%{api}_ %major 
-%define gdaver 3.0.0
+%define libnamedev %mklibname -d %{oname}%{api}
+%define gdaver 3.1.1
 
 Summary:	GNOME DB
 Name:		%name
-Version: 3.0.0
-Release: %mkrel 3
+Version: 3.1.1
+Release: %mkrel 1
 License:	GPL/LGPL
 Group: 		Databases
 URL:		http://www.gnome-db.org/
@@ -20,9 +21,11 @@ BuildRequires:	gda2.0-devel >= %gdaver
 BuildRequires:	scrollkeeper
 BuildRequires:	gtk-doc
 BuildRequires:	libglade2.0-devel
-BuildRequires:	libgtksourceview1.0-devel
+BuildRequires:	gtksourceview1-devel
 BuildRequires:  evolution-data-server-devel
 BuildRequires:	glade3-devel >= 3.1.5
+BuildRequires:	libgoocanvas-devel >= 0.9
+BuildRequires:	libgraphviz-devel
 BuildRequires:	ImageMagick
 BuildRequires:  perl-XML-Parser
 BuildRequires:  desktop-file-utils
@@ -47,16 +50,17 @@ a nice GUI front end for users, as well as a whole set of software
 components intended to be reused in other unrelated applications.
 
 
-%package -n %{libname}-devel
+%package -n %{libnamedev}
 Summary:	GNOME DB Development
 Group: 		Development/Databases
 Requires:	%{libname} = %{version}
 Provides:	%{name}-devel = %{version}
 Provides:	lib%{name}-devel = %{version}
+Obsoletes: %mklibname -d %{oname}%{api}_ %major
 Requires(post):		scrollkeeper
 Requires(postun):		scrollkeeper
 
-%description -n %{libname}-devel
+%description -n %{libnamedev}
 Gnome DB is a frontend to the GDA architecture, being developed as part
 of the GNOME project. It adds, to the already powerful GDA architecture,
 a nice GUI front end for users, as well as a whole set of software
@@ -121,10 +125,10 @@ rm -rf $RPM_BUILD_ROOT
 %postun
 %{clean_menus}
 
-%post -n %{libname}-devel
+%post -n %{libnamedev}
 %update_scrollkeeper
 
-%postun -n %{libname}-devel
+%postun -n %{libnamedev}
 %clean_scrollkeeper
 
 %post -n %{libname} -p /sbin/ldconfig
@@ -139,13 +143,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/pixmaps/*
 %_libdir/glade3/modules/libgladegnomedb.so
 %_datadir/glade3/
-%dir %_datadir/gnome-db/
-%_datadir/gnome-db/*.xml
-%_datadir/gnome-db/*.glade
+%dir %_datadir/gnome-db-%{api}/
+%_datadir/gnome-db-%{api}/*.xml
+%_datadir/gnome-db-%{api}/*.glade
 %_datadir/applications/database-properties-3.0.desktop
 %{_libdir}/libglade/2.0/*
-%dir %{_libdir}/libgnomedb/
-%{_libdir}/libgnomedb/plugins/
+%dir %{_libdir}/gnome-db-%{api}/
+%{_libdir}/gnome-db-%{api}/plugins/
 %{_menudir}/*
 %{_iconsdir}/*.png
 %{_liconsdir}/*.png
@@ -155,7 +159,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 %{_libdir}/libgnomedb*-%{api}.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %{libnamedev}
 %defattr(-, root, root)
 %doc %{_datadir}/gtk-doc/html/*
 %{_libdir}/*.so
@@ -165,4 +169,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/*
 %dir %{_datadir}/omf/*
 %{_datadir}/omf/*/*-C.omf
-%_datadir/gnome-db/demo
+%_datadir/gnome-db-%{api}/demo
