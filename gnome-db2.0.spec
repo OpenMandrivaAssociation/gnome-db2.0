@@ -10,7 +10,7 @@
 Summary:	GNOME DB
 Name:		%name
 Version: 3.1.1
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPL/LGPL
 Group: 		Databases
 URL:		http://www.gnome-db.org/
@@ -42,6 +42,7 @@ This package contains the core components of GNOME-DB.
 %package -n %{libname}
 Summary:	GNOME DB libraries
 Group: 		System/Libraries
+Requires: %name >= %version
 
 %description -n %{libname}
 Gnome DB is a frontend to the GDA architecture, being developed as part
