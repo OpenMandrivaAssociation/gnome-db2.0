@@ -10,7 +10,7 @@
 Summary:	GNOME DB
 Name:		%name
 Version: 3.1.1
-Release: %mkrel 2
+Release: %mkrel 3
 License:	GPL/LGPL
 Group: 		Databases
 URL:		http://www.gnome-db.org/
@@ -83,20 +83,14 @@ rm -rf $RPM_BUILD_ROOT
 
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 
-# menu entry
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}):command="%{_bindir}/gnome-database-properties-3.0" \
- icon="gnome-db2.png" \
- needs="x11" section="More Applications/Databases" \
- title="GNOME Database configuration" \
- longtitle="Configure your database environment" \
- startup_notify="true" xdg="true"
-EOF
+#replace icon with correct name
+sed -i -e 's/^Icon=gnome-db$/Icon=gnome-db2/g' $RPM_BUILD_ROOT%{_datadir}/applications/database-properties-3.0.desktop
+
 desktop-file-install --vendor="" \
   --remove-category="Application" \
   --remove-category="AdvancedSettings" \
-  --add-category="X-MandrivaLinux-MoreApplications-Databases" \
+  --add-category="GNOME" \
+  --add-category="GTK" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 
@@ -151,7 +145,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libglade/2.0/*
 %dir %{_libdir}/gnome-db-%{api}/
 %{_libdir}/gnome-db-%{api}/plugins/
-%{_menudir}/*
 %{_iconsdir}/*.png
 %{_liconsdir}/*.png
 %{_miconsdir}/*.png
