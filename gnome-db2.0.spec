@@ -5,7 +5,7 @@
 %define api 3.0
 %define libname	%mklibname %{oname}%{api}_ %major 
 %define libnamedev %mklibname -d %{oname}%{api}
-%define gdaver 3.1.1
+%define gdaver 3.1.2
 
 Summary:	GNOME DB
 Name:		%name
