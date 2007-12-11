@@ -132,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 							  
 %files -f %{pkgname}-%api.lang
 %defattr(-, root, root)
-%doc AUTHORS COPYING ChangeLog NEWS
+%doc AUTHORS COPYING NEWS
 %_sysconfdir/gconf/schemas/libgnomedb-3.0.schemas
 %{_bindir}/*
 %{_datadir}/pixmaps/*
