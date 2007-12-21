@@ -15,6 +15,7 @@ License:	GPL/LGPL
 Group: 		Databases
 URL:		http://www.gnome-db.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
+BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 BuildRequires:	libgnomeui2-devel
 BuildRequires:	gda2.0-devel >= %gdaver
 BuildRequires:	scrollkeeper
