@@ -116,21 +116,29 @@ rm -rf $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a} \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
 %post_install_gconf_schemas libgnomedb-3.0
+%endif
 
 %preun
 %preun_uninstall_gconf_schemas libgnomedb-3.0
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
+%endif
 
+%if %mdkversion < 200900
 %post -n %{libnamedev}
 %update_scrollkeeper
+%endif
 
+%if %mdkversion < 200900
 %postun -n %{libnamedev}
 %clean_scrollkeeper
+%endif
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
