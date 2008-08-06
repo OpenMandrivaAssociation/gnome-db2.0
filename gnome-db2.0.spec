@@ -10,8 +10,8 @@
 Summary:	GNOME DB
 Name:		%name
 Version: 3.1.2
-Release: %mkrel 3
-License:	GPL/LGPL
+Release: %mkrel 4
+License:	GPLv2+ and LGPLv2+
 Group: 		Databases
 URL:		http://www.gnome-db.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
