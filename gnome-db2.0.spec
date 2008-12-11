@@ -28,7 +28,7 @@ BuildRequires:  evolution-data-server-devel
 BuildRequires:	glade3-devel >= 3.1.5
 BuildRequires:	libgoocanvas-devel >= 0.9
 BuildRequires:	libgraphviz-devel
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 BuildRequires:  perl-XML-Parser
 BuildRequires:  desktop-file-utils
 BuildRequires:  intltool
