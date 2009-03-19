@@ -10,7 +10,7 @@
 Summary:	GNOME DB
 Name:		%name
 Version: 3.1.2
-Release: %mkrel 7
+Release: %mkrel 8
 License:	GPLv2+ and LGPLv2+
 Group: 		Databases
 URL:		http://www.gnome-db.org/
@@ -80,7 +80,7 @@ you develop GNOME-DB applications.
 %patch1 -p0 -b .strfmt
 
 #needed by patch0
-autoreconf
+autoreconf -fi
 
 %build
 %configure2_5x
