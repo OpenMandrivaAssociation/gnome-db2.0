@@ -18,6 +18,9 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.
 # (fc) 3.1.2-3mdv fix underlinking
 Patch0:		libgnomedb-3.1.2-fixunderlinking.patch
 Patch1:		libgnomedb-3.1.2-fix-str-fmt.patch
+# gw build with graphviz 2.22
+# http://bugzilla.gnome.org/show_bug.cgi?id=576045
+Patch2: 	libgnomedb-3.1.2-graphviz-2.22.patch
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 BuildRequires:	libgnomeui2-devel
 BuildRequires:	gda2.0-devel >= %gdaver
@@ -28,9 +31,8 @@ BuildRequires:	gtksourceview1-devel
 BuildRequires:  evolution-data-server-devel
 BuildRequires:	glade3-devel >= 3.1.5
 BuildRequires:	libgoocanvas-devel >= 0.9
-BuildRequires:	libgraphviz-devel
+BuildRequires:	libgraphviz-devel >= 2.22
 BuildRequires:	imagemagick
-BuildRequires:  perl-XML-Parser
 BuildRequires:  desktop-file-utils
 BuildRequires:  intltool
 
@@ -78,6 +80,7 @@ you develop GNOME-DB applications.
 %setup -q -n %{pkgname}-%{version}
 %patch0 -p1 -b .fixunderlinking
 %patch1 -p0 -b .strfmt
+%patch2 -p1
 
 #needed by patch0
 autoreconf -fi
