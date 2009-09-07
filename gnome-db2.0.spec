@@ -10,7 +10,7 @@
 Summary:	GNOME DB
 Name:		%name
 Version: 3.1.2
-Release: %mkrel 9
+Release: %mkrel 10
 License:	GPLv2+ and LGPLv2+
 Group: 		Databases
 URL:		http://www.gnome-db.org/
@@ -30,7 +30,6 @@ BuildRequires:	gtk-doc docbook-dtd412-xml
 BuildRequires:	libglade2.0-devel
 BuildRequires:	gtksourceview1-devel
 BuildRequires:  evolution-data-server-devel
-BuildRequires:	glade3-devel >= 3.1.5
 BuildRequires:	libgoocanvas-devel >= 0.9
 BuildRequires:	graphviz-devel >= 2.22
 BuildRequires:	imagemagick
@@ -117,7 +116,6 @@ convert -geometry 16x16 gnome-db.png $RPM_BUILD_ROOT%{_miconsdir}/gnome-db2.png
 
 # remove unpackaged files
 rm -rf $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a} \
-       $RPM_BUILD_ROOT%{_libdir}/glade3/modules/*a \
        $RPM_BUILD_ROOT%{_libdir}/libgnomedb/plugins/*a
 
 %clean
@@ -161,8 +159,6 @@ rm -rf $RPM_BUILD_ROOT
 %_sysconfdir/gconf/schemas/libgnomedb-3.0.schemas
 %{_bindir}/*
 %{_datadir}/pixmaps/*
-%_libdir/glade3/modules/libgladegnomedb.so
-%_datadir/glade3/
 %dir %_datadir/gnome-db-%{api}/
 %_datadir/gnome-db-%{api}/*.xml
 %_datadir/gnome-db-%{api}/*.glade
