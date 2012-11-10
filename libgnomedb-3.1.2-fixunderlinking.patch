@@ -1,0 +1,9 @@
+diff -p -up libgnomedb-3.1.2/libgnomedb-graph/Makefile.am.underlinking libgnomedb-3.1.2/libgnomedb-graph/Makefile.am
+--- libgnomedb-3.1.2/libgnomedb-graph/Makefile.am.underlinking	2008-05-28 15:45:05.000000000 +0200
++++ libgnomedb-3.1.2/libgnomedb-graph/Makefile.am	2008-05-28 15:45:16.000000000 +0200
+@@ -52,4 +52,4 @@ libgnomedb_graph_3_0_la_SOURCES = \
+ 
+ 
+ libgnomedb_graph_3_0_la_LDFLAGS = -version-info $(GNOMEDB_CURRENT):$(GNOMEDB_REVISION):$(GNOMEDB_AGE) $(NO_UNDEFINED)
+-libgnomedb_graph_3_0_la_LIBADD = ../libgnomedb/libgnomedb-3.0.la $(LIBGNOMEDB_LIBS) $(LIBGNOMECANVAS_LIBS) $(GRAPHVIZ_LIBS)
++libgnomedb_graph_3_0_la_LIBADD = ../libgnomedb/libgnomedb-3.0.la $(LIBGNOMEDB_LIBS) $(LIBGNOMECANVAS_LIBS) $(GRAPHVIZ_LIBS) -lm

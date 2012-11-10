@@ -1,0 +1,10 @@
+--- libgnomedb/Makefile.am~	2007-10-02 14:59:41.000000000 +0200
++++ libgnomedb/Makefile.am	2009-08-11 04:48:27.000000000 +0200
+@@ -38,7 +38,6 @@
+ 	gnome-db-decl.h \
+ 	gnome-db-dsn-editor.h \
+ 	gnome-db-dsn-spec.h \
+-	gnome-db-enum-types.h \
+ 	gnome-db-enums.h \
+ 	gnome-db-find-dialog.h \
+ 	gnome-db-form.h \

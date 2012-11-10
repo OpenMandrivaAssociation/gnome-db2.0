@@ -1,0 +1,39 @@
+diff -p -up libgnomedb-3.1.2/libgnomedb-graph/gnome-db-canvas.c~ libgnomedb-3.1.2/libgnomedb-graph/gnome-db-canvas.c
+--- libgnomedb-3.1.2/libgnomedb-graph/gnome-db-canvas.c~	2007-09-01 14:28:14.000000000 +0200
++++ libgnomedb-3.1.2/libgnomedb-graph/gnome-db-canvas.c	2009-03-20 10:03:36.000000000 +0100
+@@ -853,11 +853,11 @@ gnome_db_canvas_perform_auto_layout (Gno
+ 
+ 	for (list = nodes_list; list; list = list->next) {
+ 		NodeLayout *nl = (NodeLayout*) list->data;
+-		nl->end_x = ND_coord_i (nl->node).x - (nl->width / 2.);
+-		nl->end_y = - ND_coord_i (nl->node).y - (nl->height / 2.);
++		nl->end_x = ND_coord (nl->node).x - (nl->width / 2.);
++		nl->end_y = - ND_coord (nl->node).y - (nl->height / 2.);
+ 		/*g_print ("After: Node %p: HxW: %.3f %.3f XxY = %d, %d\n", nl->node, 
+ 			 ND_height (nl->node), ND_width (nl->node),
+-			 ND_coord_i (nl->node).x, - ND_coord_i (nl->node).y);*/
++			 ND_coord (nl->node).x, - ND_coord (nl->node).y);*/
+ 		if (!animate)
+ 			gda_graph_item_set_position (nl->graph_item, nl->end_x, nl->end_y);
+ 	}
+diff -p -up libgnomedb-3.1.2/libgnomedb-goo/gnome-db-goo.c~ libgnomedb-3.1.2/libgnomedb-goo/gnome-db-goo.c
+--- libgnomedb-3.1.2/libgnomedb-goo/gnome-db-goo.c~	2009-03-20 10:05:51.000000000 +0100
++++ libgnomedb-3.1.2/libgnomedb-goo/gnome-db-goo.c	2009-03-20 10:09:57.000000000 +0100
+@@ -935,14 +935,14 @@ gnome_db_goo_perform_auto_layout (GnomeD
+ 
+ 	for (list = nodes_list; list; list = list->next) {
+ 		NodeLayout *nl = (NodeLayout*) list->data;
+-		nl->end_x = ND_coord_i (nl->node).x - (nl->width / 2.);
+-		nl->end_y = - ND_coord_i (nl->node).y - (nl->height / 2.);
++		nl->end_x = ND_coord (nl->node).x - (nl->width / 2.);
++		nl->end_y = - ND_coord (nl->node).y - (nl->height / 2.);
+ 		nl->dx = fabs (nl->end_x - nl->start_x);
+ 		nl->dy = fabs (nl->end_y - nl->start_y);
+ 		nl->stop = FALSE;
+ 		/*g_print ("After: Node %p: HxW: %.3f %.3f XxY = %d, %d\n", nl->node, 
+ 			 ND_height (nl->node), ND_width (nl->node),
+-			 ND_coord_i (nl->node).x, - ND_coord_i (nl->node).y);*/
++			 ND_coord (nl->node).x, - ND_coord (nl->node).y);*/
+ 		if (!animate)
+ 			gda_graph_item_set_position (nl->graph_item, nl->end_x, nl->end_y);
+ 	}
