@@ -23,6 +23,11 @@ Patch1:		libgnomedb-3.1.2-fix-str-fmt.patch
 Patch2: 	libgnomedb-3.1.2-graphviz-2.22.patch
 Patch3:		libgnomedb-3.1.2-fix-installation.patch
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libgnomeui2-devel
 BuildRequires:	gda2.0-devel >= %gdaver
 BuildRequires:	scrollkeeper
